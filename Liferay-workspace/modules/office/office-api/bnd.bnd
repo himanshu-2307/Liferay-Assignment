@@ -1,0 +1,10 @@
+Bundle-Name: office-api
+Bundle-SymbolicName: com.liferay.assignment.office.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.liferay.assignment.office.exception,\
+	com.liferay.assignment.office.model,\
+	com.liferay.assignment.office.service,\
+	com.liferay.assignment.office.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../office-service/service.xml

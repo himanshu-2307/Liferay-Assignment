@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<custom-sql>
+<sql id="com.liferay.assignment.office.service.persistence.impl.EmployeeFinderImpl" >
+<![CDATA[
+SELECT * FROM offices_employee WHERE offices_employee.salary=?]]>
+</sql>
+</custom-sql>

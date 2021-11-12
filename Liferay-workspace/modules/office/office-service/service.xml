@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.3.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_3_0.dtd">
+
+<service-builder dependency-injector="ds" package-path="com.liferay.assignment.office">
+    <namespace>offices</namespace>
+    <entity name="Employee" local-service="true" uuid="true">
+
+    	<!-- PK fields -->
+
+    	<column name="employeeId" primary="true" type="long"></column>
+
+    	<!-- Group instance -->
+
+    	<column name="groupId" type="long"></column>
+
+    	<!-- Audit fields -->
+
+    	<column name="companyId" type="long"></column>
+    	<column name="userId" type="long"></column>
+    	<column name="userName" type="String"></column>
+    	<column name="createDate" type="Date"></column>
+    	<column name="modifiedDate" type="Date"></column>
+    	
+    	<!-- Custom Employee Entry fields -->
+    	
+    	<column type="String" name="name"></column>
+    	<column type="String" name="jobTitle"></column>
+    	<column type="long" name="phoneNo"></column>
+    	<column type="long" name="salary"></column>
+    	<column type="long" name="projectId"></column>
+        <column name="departmentId" type="long"></column>
+        
+        <!-- Finders -->
+		<!-- Find by groupId 
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId"></finder-column>
+		</finder> -->
+		<finder name="Name_salary" return-type="Collection">
+			<finder-column name="name"></finder-column>
+			<finder-column name="salary"></finder-column>
+		</finder>
+		
+    </entity>
+    <entity name="Department" local-service="true" uuid="true">
+
+    	<!-- PK fields -->
+
+    	<column name="departmentId" primary="true" type="long"></column>
+
+    	<!-- Group instance -->
+
+    	<column name="groupId" type="long"></column>
+
+    	<!-- Audit fields -->
+
+    	<column name="companyId" type="long"></column>
+    	<column name="userId" type="long"></column>
+    	<column name="userName" type="String"></column>
+    	<column name="createDate" type="Date"></column>
+    	<column name="modifiedDate" type="Date"></column>
+    	
+    	<!-- Custom Department Entry fields -->
+    	
+    	<column type="String" name="deptName"></column>
+    	
+    	<!--  Finders -->
+    	<finder name="Name_department" return-type="Collection">
+			<finder-column name="deptName"></finder-column>
+			<finder-column name="departmentId"></finder-column>
+		</finder>
+    	
+    	
+    </entity>
+    <entity name="Project" uuid="true" local-service="true">
+
+    	<!-- PK fields -->
+
+    	<column name="projectId" primary="true" type="long"></column>
+
+    	<!-- Group instance -->
+
+    	<column name="groupId" type="long"></column>
+
+    	<!-- Audit fields -->
+
+    	<column name="companyId" type="long"></column>
+    	<column name="userId" type="long"></column>
+    	<column name="userName" type="String"></column>
+    	<column name="createDate" type="Date"></column>
+    	<column name="modifiedDate" type="Date"></column>
+    	
+    	<!-- Custom Project Entry fields -->
+    	
+    	<column type="String" name="projectName"></column>
+    </entity>
+</service-builder>

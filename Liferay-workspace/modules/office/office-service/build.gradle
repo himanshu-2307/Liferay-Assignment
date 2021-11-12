@@ -1,0 +1,11 @@
+dependencies {
+	compile project(":modules:office:office-api")
+
+	compileOnly group: "com.liferay.portal", name: "release.dxp.api"
+}
+
+buildService {
+	apiDir = "../office-api/src/main/java"
+}
+
+group = "com.liferay.assignment.office"
