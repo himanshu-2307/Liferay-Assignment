@@ -2,6 +2,13 @@
 <custom-sql>
 <sql id="com.liferay.assignment.office.service.persistence.impl.EmployeeFinderImpl" >
 <![CDATA[
-SELECT * FROM offices_employee WHERE offices_employee.salary=?]]>
+SELECT * FROM offices_employee WHERE offices_employee.groupId=? AND offices_employee.userId=?]]>
+
 </sql>
+<sql id="com.liferay.assignment.office.service.persistence.impl.EmployeeFinderImpl.Alldata" >
+<![CDATA[
+select uuid_ ,employeeId,groupId,companyId,name,userName,userId,jobTitle,phoneNo,salary,departmentId,projectId,createDate,modifiedDate FROM offices_employee
+]]>
+</sql>
+
 </custom-sql>

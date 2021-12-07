@@ -1,0 +1,10 @@
+Bundle-Name: registration-api
+Bundle-SymbolicName: com.liferay.assignment.registration.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.liferay.assignment.registration.exception,\
+	com.liferay.assignment.registration.model,\
+	com.liferay.assignment.registration.service,\
+	com.liferay.assignment.registration.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../registration-service/service.xml

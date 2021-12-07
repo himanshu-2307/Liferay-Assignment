@@ -55,14 +55,25 @@ public class EmployeeServiceUtil {
 		return getService().deleteEmployee(employeeId);
 	}
 
+	public static List<Employee> getAllEmployeesInformation() {
+		return getService().getAllEmployeesInformation();
+	}
+
 	public static Employee getEmployee(long employeeId) throws PortalException {
 		return getService().getEmployee(employeeId);
 	}
 
 	public static List<Employee> getEmployeeByGroupId(
-		String groupId, String userId) {
+		long groupId, long userId) {
 
 		return getService().getEmployeeByGroupId(groupId, userId);
+	}
+
+	public static List<Employee> getEmployeeByGroupIdAndUserIdAsRemote(
+		long userId, long groupId) {
+
+		return getService().getEmployeeByGroupIdAndUserIdAsRemote(
+			userId, groupId);
 	}
 
 	public static List<Employee> getNameSalary(String name, long salary) {

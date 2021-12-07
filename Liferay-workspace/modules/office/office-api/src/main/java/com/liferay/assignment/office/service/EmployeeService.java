@@ -61,10 +61,17 @@ public interface EmployeeService extends BaseService {
 	public Employee deleteEmployee(long employeeId) throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<Employee> getAllEmployeesInformation();
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public Employee getEmployee(long employeeId) throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public List<Employee> getEmployeeByGroupId(String groupId, String userId);
+	public List<Employee> getEmployeeByGroupId(long groupId, long userId);
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<Employee> getEmployeeByGroupIdAndUserIdAsRemote(
+		long userId, long groupId);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<Employee> getNameSalary(String name, long salary);

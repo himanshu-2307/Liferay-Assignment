@@ -163,13 +163,51 @@ public class EmployeeServiceSoap {
 	}
 
 	public static com.liferay.assignment.office.model.EmployeeSoap[]
-			getEmployeeByGroupId(String groupId, String userId)
+			getEmployeeByGroupId(long groupId, long userId)
 		throws RemoteException {
 
 		try {
 			java.util.List<com.liferay.assignment.office.model.Employee>
 				returnValue = EmployeeServiceUtil.getEmployeeByGroupId(
 					groupId, userId);
+
+			return com.liferay.assignment.office.model.EmployeeSoap.
+				toSoapModels(returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.liferay.assignment.office.model.EmployeeSoap[]
+			getEmployeeByGroupIdAndUserIdAsRemote(long userId, long groupId)
+		throws RemoteException {
+
+		try {
+			java.util.List<com.liferay.assignment.office.model.Employee>
+				returnValue =
+					EmployeeServiceUtil.getEmployeeByGroupIdAndUserIdAsRemote(
+						userId, groupId);
+
+			return com.liferay.assignment.office.model.EmployeeSoap.
+				toSoapModels(returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.liferay.assignment.office.model.EmployeeSoap[]
+			getAllEmployeesInformation()
+		throws RemoteException {
+
+		try {
+			java.util.List<com.liferay.assignment.office.model.Employee>
+				returnValue = EmployeeServiceUtil.getAllEmployeesInformation();
 
 			return com.liferay.assignment.office.model.EmployeeSoap.
 				toSoapModels(returnValue);

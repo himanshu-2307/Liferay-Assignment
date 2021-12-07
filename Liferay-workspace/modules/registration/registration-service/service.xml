@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.3.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_3_0.dtd">
+
+<service-builder dependency-injector="ds"
+	package-path="com.liferay.assignment.registration">
+	<author>tarun</author>
+	<namespace>RGS</namespace>
+	<entity name="Register" local-service="true"
+		remote-service="true" uuid="true">
+		
+		<!-- PK fields -->
+
+		<column name="registerId" primary="true" type="long" />			
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+		
+	
+		<!-- Audit fields -->
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Register Custom Entry fields -->
+
+		<column name="first_name" type="String" />
+		<column name="last_name" type="String" />
+		<column name="email_address" type="String" />
+		<column name="user_name" type="String" />
+		<column name="birthday" type="Date" />
+		<column name="gender"    type="String" />
+		<column name="password2" type="String" />
+		<column name="home_phone" type="Long" />
+		<column name="mobile_phone" type="Long" />
+		<column name="address" type="String" />
+		<column name="address2" type="String" />
+		<column name="city" type="String" />
+		<column name="state" type="String" />
+		<column name="zip" type="String" />
+		<column name="security_question" type="String" />
+		<column name="security_answer" type="String"  />
+		<column name="accepted_tou" type="boolean"></column>
+
+		<!-- Status fields -->
+
+		<column name="status" type="int" />
+		<column name="statusByUserId" type="long" />
+		<column name="statusByUserName" type="String" />
+		<column name="statusDate" type="Date" />
+		<order>
+			<order-column name="createDate" order-by="desc" />
+		</order>
+		<finder name="G" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
+
+
+	</entity>
+
+	<exceptions>
+		<exception>RegisterEntryFirstName</exception>
+		<exception>RegisterEntryLastName</exception>
+		<exception>RegisterEntryEmail</exception>
+		<exception>RegisterEntryUsername</exception>
+		<exception>RegisterEntryBirthday</exception>
+		<exception>RegisterEntryGender</exception>
+		<exception>RegisterEntryPassword</exception>
+		<exception>RegisterEntryPhone</exception>
+		<exception>RegisterEntryAddress</exception>
+		<exception>RegisterEntryCity</exception>
+		<exception>RegisterEntryState</exception>
+		<exception>RegisterEntryZip</exception>
+		<exception>RegisterEntrySecurityQuestion</exception>
+		<exception>RegisterEntrysecurityAnswer</exception>
+	</exceptions>
+
+</service-builder>
