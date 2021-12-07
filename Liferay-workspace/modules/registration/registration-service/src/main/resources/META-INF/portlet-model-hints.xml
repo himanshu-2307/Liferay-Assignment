@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.liferay.assignment.registration.model.Register">
+		<field name="uuid" type="String" />
+		<field name="registerId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="first_name" type="String" />
+		<field name="last_name" type="String" />
+		<field name="email_address" type="String" />
+		<field name="user_name" type="String" />
+		<field name="birthday" type="Date" />
+		<field name="gender" type="String" />
+		<field name="password2" type="String" />
+		<field name="home_phone" type="Long" />
+		<field name="mobile_phone" type="Long" />
+		<field name="address" type="String" />
+		<field name="address2" type="String" />
+		<field name="city" type="String" />
+		<field name="state" type="String" />
+		<field name="zip" type="String" />
+		<field name="security_question" type="String" />
+		<field name="security_answer" type="String" />
+		<field name="accepted_tou" type="boolean" />
+		<field name="status" type="int" />
+		<field name="statusByUserId" type="long" />
+		<field name="statusByUserName" type="String" />
+		<field name="statusDate" type="Date" />
+	</model>
+</model-hints>

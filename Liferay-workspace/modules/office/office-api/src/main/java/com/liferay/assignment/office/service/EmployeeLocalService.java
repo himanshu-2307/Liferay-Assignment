@@ -214,6 +214,9 @@ public interface EmployeeLocalService
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ActionableDynamicQuery getActionableDynamicQuery();
 
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<Employee> getAllEmployeesInformationAsLocal();
+
 	/**
 	 * Returns the employee with the primary key.
 	 *
@@ -225,8 +228,12 @@ public interface EmployeeLocalService
 	public Employee getEmployee(long employeeId) throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<Employee> getEmployeeByGroupIdAndUserIdAsLocal(
+		long userId, long groupId);
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<Employee> getEmployeeByGroupIdAsLocal(
-		String groupId, String userId);
+		long groupId, long userId);
 
 	/**
 	 * Returns the employee matching the UUID and group.
@@ -296,7 +303,7 @@ public interface EmployeeLocalService
 	public IndexableActionableDynamicQuery getIndexableActionableDynamicQuery();
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public DynamicQuery getListWithDynamicQuery(long groupId, long userID);
+	public DynamicQuery getListWithDynamicQuery(long groupId, long userId);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<Employee> getNameSalary(String name, long salary);

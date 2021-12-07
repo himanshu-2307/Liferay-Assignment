@@ -20,7 +20,6 @@ import com.liferay.portal.aop.AopService;
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
 import com.liferay.portal.kernel.dao.orm.RestrictionsFactoryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
-import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.service.ServiceContext;
 
@@ -124,20 +123,30 @@ public class EmployeeLocalServiceImpl extends EmployeeLocalServiceBaseImpl {
 	        return employeePersistence.findByPrimaryKey(employeeId);
 	    }
 	 
+	 
 	 public List<Employee> getNameSalary(String name, long salary){
 		    return employeePersistence.findByName_salary(name, salary);
 	 }
 	 
-	 public DynamicQuery getListWithDynamicQuery(long groupId, long userID) {
+	 public DynamicQuery getListWithDynamicQuery(long groupId, long userId) {
 			
-			DynamicQuery employeeQuery= (DynamicQuery) dynamicQuery(dynamicQuery().add(RestrictionsFactoryUtil.eq("groupId", groupId)).add(RestrictionsFactoryUtil.eq("userID", userID)));
-				
+			DynamicQuery employeeQuery= (DynamicQuery) dynamicQuery(dynamicQuery().add(RestrictionsFactoryUtil.eq("groupId", groupId)).add(RestrictionsFactoryUtil.eq("userId", userId)));
+				System.out.println("Tarun" + employeeQuery);
 				return employeeQuery;
 		}
-	 public List<Employee> getEmployeeByGroupIdAsLocal(String groupId, String userId){
+	 public List<Employee> getEmployeeByGroupIdAsLocal(long groupId, long userId){
 			
-			List<Employee> employeeList=employeeLocalService.dynamicQuery(dynamicQuery().add(RestrictionsFactoryUtil.eq("jobTitle", userId)));
-				
+			//List<Employee> employeeList=employeeLocalService.dynamicQuery(getListWithDynamicQuery(groupId, userId));
+		 	List<Employee> employeeList=employeeLocalService.dynamicQuery(dynamicQuery().add(RestrictionsFactoryUtil.eq("groupId", groupId)).add(RestrictionsFactoryUtil.eq("userId", userId)));
+				System.out.println("List" + employeeList);
 				return employeeList;
+		}
+	 
+	 public List<Employee> getEmployeeByGroupIdAndUserIdAsLocal( long userId, long groupId){
+		 		return employeeFinder.getEmployeeByGroupIdAndUserId(userId, groupId);
+	 }
+	 
+	 public List<Employee> getAllEmployeesInformationAsLocal() {
+			return employeeFinder.getAllEmployeesInformation();
 		}
 }

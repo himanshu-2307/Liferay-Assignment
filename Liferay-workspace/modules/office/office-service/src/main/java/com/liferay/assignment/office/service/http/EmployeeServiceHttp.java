@@ -254,7 +254,7 @@ public class EmployeeServiceHttp {
 
 	public static java.util.List<com.liferay.assignment.office.model.Employee>
 		getEmployeeByGroupId(
-			HttpPrincipal httpPrincipal, String groupId, String userId) {
+			HttpPrincipal httpPrincipal, long groupId, long userId) {
 
 		try {
 			MethodKey methodKey = new MethodKey(
@@ -263,6 +263,73 @@ public class EmployeeServiceHttp {
 
 			MethodHandler methodHandler = new MethodHandler(
 				methodKey, groupId, userId);
+
+			Object returnObj = null;
+
+			try {
+				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+			}
+			catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
+			}
+
+			return (java.util.List
+				<com.liferay.assignment.office.model.Employee>)returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
+
+			_log.error(systemException, systemException);
+
+			throw systemException;
+		}
+	}
+
+	public static java.util.List<com.liferay.assignment.office.model.Employee>
+		getEmployeeByGroupIdAndUserIdAsRemote(
+			HttpPrincipal httpPrincipal, long userId, long groupId) {
+
+		try {
+			MethodKey methodKey = new MethodKey(
+				EmployeeServiceUtil.class,
+				"getEmployeeByGroupIdAndUserIdAsRemote",
+				_getEmployeeByGroupIdAndUserIdAsRemoteParameterTypes6);
+
+			MethodHandler methodHandler = new MethodHandler(
+				methodKey, userId, groupId);
+
+			Object returnObj = null;
+
+			try {
+				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+			}
+			catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
+			}
+
+			return (java.util.List
+				<com.liferay.assignment.office.model.Employee>)returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
+
+			_log.error(systemException, systemException);
+
+			throw systemException;
+		}
+	}
+
+	public static java.util.List<com.liferay.assignment.office.model.Employee>
+		getAllEmployeesInformation(HttpPrincipal httpPrincipal) {
+
+		try {
+			MethodKey methodKey = new MethodKey(
+				EmployeeServiceUtil.class, "getAllEmployeesInformation",
+				_getAllEmployeesInformationParameterTypes7);
+
+			MethodHandler methodHandler = new MethodHandler(methodKey);
 
 			Object returnObj = null;
 
@@ -307,6 +374,12 @@ public class EmployeeServiceHttp {
 	private static final Class<?>[] _getNameSalaryParameterTypes4 =
 		new Class[] {String.class, long.class};
 	private static final Class<?>[] _getEmployeeByGroupIdParameterTypes5 =
-		new Class[] {String.class, String.class};
+		new Class[] {long.class, long.class};
+	private static final Class<?>[]
+		_getEmployeeByGroupIdAndUserIdAsRemoteParameterTypes6 = new Class[] {
+			long.class, long.class
+		};
+	private static final Class<?>[] _getAllEmployeesInformationParameterTypes7 =
+		new Class[] {};
 
 }

@@ -230,6 +230,10 @@ public class EmployeeLocalServiceUtil {
 		return getService().getActionableDynamicQuery();
 	}
 
+	public static List<Employee> getAllEmployeesInformationAsLocal() {
+		return getService().getAllEmployeesInformationAsLocal();
+	}
+
 	/**
 	 * Returns the employee with the primary key.
 	 *
@@ -241,8 +245,15 @@ public class EmployeeLocalServiceUtil {
 		return getService().getEmployee(employeeId);
 	}
 
+	public static List<Employee> getEmployeeByGroupIdAndUserIdAsLocal(
+		long userId, long groupId) {
+
+		return getService().getEmployeeByGroupIdAndUserIdAsLocal(
+			userId, groupId);
+	}
+
 	public static List<Employee> getEmployeeByGroupIdAsLocal(
-		String groupId, String userId) {
+		long groupId, long userId) {
 
 		return getService().getEmployeeByGroupIdAsLocal(groupId, userId);
 	}
@@ -333,9 +344,9 @@ public class EmployeeLocalServiceUtil {
 	}
 
 	public static DynamicQuery getListWithDynamicQuery(
-		long groupId, long userID) {
+		long groupId, long userId) {
 
-		return getService().getListWithDynamicQuery(groupId, userID);
+		return getService().getListWithDynamicQuery(groupId, userId);
 	}
 
 	public static List<Employee> getNameSalary(String name, long salary) {

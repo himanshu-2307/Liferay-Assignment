@@ -251,6 +251,13 @@ public class EmployeeLocalServiceWrapper
 		return _employeeLocalService.getActionableDynamicQuery();
 	}
 
+	@Override
+	public java.util.List<com.liferay.assignment.office.model.Employee>
+		getAllEmployeesInformationAsLocal() {
+
+		return _employeeLocalService.getAllEmployeesInformationAsLocal();
+	}
+
 	/**
 	 * Returns the employee with the primary key.
 	 *
@@ -268,7 +275,15 @@ public class EmployeeLocalServiceWrapper
 
 	@Override
 	public java.util.List<com.liferay.assignment.office.model.Employee>
-		getEmployeeByGroupIdAsLocal(String groupId, String userId) {
+		getEmployeeByGroupIdAndUserIdAsLocal(long userId, long groupId) {
+
+		return _employeeLocalService.getEmployeeByGroupIdAndUserIdAsLocal(
+			userId, groupId);
+	}
+
+	@Override
+	public java.util.List<com.liferay.assignment.office.model.Employee>
+		getEmployeeByGroupIdAsLocal(long groupId, long userId) {
 
 		return _employeeLocalService.getEmployeeByGroupIdAsLocal(
 			groupId, userId);
@@ -374,9 +389,9 @@ public class EmployeeLocalServiceWrapper
 
 	@Override
 	public com.liferay.portal.kernel.dao.orm.DynamicQuery
-		getListWithDynamicQuery(long groupId, long userID) {
+		getListWithDynamicQuery(long groupId, long userId) {
 
-		return _employeeLocalService.getListWithDynamicQuery(groupId, userID);
+		return _employeeLocalService.getListWithDynamicQuery(groupId, userId);
 	}
 
 	@Override

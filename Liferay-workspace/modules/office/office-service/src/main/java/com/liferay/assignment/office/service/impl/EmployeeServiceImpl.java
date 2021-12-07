@@ -76,9 +76,17 @@ public class EmployeeServiceImpl extends EmployeeServiceBaseImpl {
 	 public List<Employee> getNameSalary(String name, long salary){
 		    return employeeLocalService.getNameSalary(name, salary);
 	}
-	 public List<Employee> getEmployeeByGroupId(String groupId,String userId){
+	 public List<Employee> getEmployeeByGroupId(long groupId,long userId){
 			
 			return employeeLocalService.getEmployeeByGroupIdAsLocal(groupId, userId);
     }
+	 
+	 public List<Employee> getEmployeeByGroupIdAndUserIdAsRemote( long userId, long groupId){
+	 		return employeeLocalService.getEmployeeByGroupIdAndUserIdAsLocal(userId, groupId);
+	 }
+	//Custom SQL Query
+		public List<Employee> getAllEmployeesInformation() {
+			return employeeLocalService.getAllEmployeesInformationAsLocal();
+		}
 	 
 }
