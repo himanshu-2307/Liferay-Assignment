@@ -2,6 +2,7 @@ package com.liferay.training.employee.RenderCommands;
 
 import com.liferay.assignment.office.model.Employee;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCRenderCommand;
+import com.liferay.portal.kernel.servlet.SessionMessages;
 import com.liferay.training.employee.api.EmployeeApi;
 import com.liferay.training.employee.constants.EmployeePortletKeys;
 
@@ -29,9 +30,12 @@ public class ViewEmployeesMVCRenderCommand implements MVCRenderCommand {
 	public String render(RenderRequest renderRequest, RenderResponse renderResponse) throws PortletException {
 		// TODO Auto-generated method stub
 		
-		List<Employee> employeeList = _employeeAPI.getAllEmployeesInformationOffice();
-		renderRequest.setAttribute("empList", employeeList);
+		List<Employee> employeeList = _employeeAPI.getAllEmployeesInformationOffice(0,12);
+	
 		System.out.println(employeeList);
+		renderRequest.setAttribute("empList", employeeList);
+		//System.out.println(employeeList);
+		 SessionMessages.add(renderRequest,"employee-form-success");
 		
 		
 		return "/viewAllEmployees.jsp";

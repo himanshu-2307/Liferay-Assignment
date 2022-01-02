@@ -27,6 +27,6 @@ public interface EmployeeFinder {
 		getEmployeeByGroupIdAndUserId(long userId, long groupId);
 
 	public java.util.List<com.liferay.assignment.office.model.Employee>
-		getAllEmployeesInformation();
+		getAllEmployeesInformation(int start, int end);
 
 }

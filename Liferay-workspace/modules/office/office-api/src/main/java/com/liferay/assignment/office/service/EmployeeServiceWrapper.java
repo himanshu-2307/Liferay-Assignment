@@ -52,9 +52,9 @@ public class EmployeeServiceWrapper
 
 	@Override
 	public java.util.List<com.liferay.assignment.office.model.Employee>
-		getAllEmployeesInformation() {
+		getAllEmployeesInformation(int start, int end) {
 
-		return _employeeService.getAllEmployeesInformation();
+		return _employeeService.getAllEmployeesInformation(start, end);
 	}
 
 	@Override
