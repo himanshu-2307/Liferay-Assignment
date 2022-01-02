@@ -322,14 +322,16 @@ public class EmployeeServiceHttp {
 	}
 
 	public static java.util.List<com.liferay.assignment.office.model.Employee>
-		getAllEmployeesInformation(HttpPrincipal httpPrincipal) {
+		getAllEmployeesInformation(
+			HttpPrincipal httpPrincipal, int start, int end) {
 
 		try {
 			MethodKey methodKey = new MethodKey(
 				EmployeeServiceUtil.class, "getAllEmployeesInformation",
 				_getAllEmployeesInformationParameterTypes7);
 
-			MethodHandler methodHandler = new MethodHandler(methodKey);
+			MethodHandler methodHandler = new MethodHandler(
+				methodKey, start, end);
 
 			Object returnObj = null;
 
@@ -380,6 +382,6 @@ public class EmployeeServiceHttp {
 			long.class, long.class
 		};
 	private static final Class<?>[] _getAllEmployeesInformationParameterTypes7 =
-		new Class[] {};
+		new Class[] {int.class, int.class};
 
 }

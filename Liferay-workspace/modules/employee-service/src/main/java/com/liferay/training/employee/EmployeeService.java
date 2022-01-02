@@ -32,7 +32,7 @@ public class EmployeeService implements EmployeeApi {
 
 		@Override
 		public Employee updateEmployeeOffice(long userId, long employeeId, String name, String jobTitle, long phoneNo,
-				int salary, long departmentId, long projectId, ServiceContext serviceContext) throws PortalException {
+		long salary, long departmentId, long projectId, ServiceContext serviceContext) throws PortalException {
 			// TODO Auto-generated method stub
 			return employeeLocalService.updateEmployee(userId, employeeId, name, jobTitle, phoneNo, salary, departmentId, projectId, serviceContext);
 		}
@@ -59,13 +59,44 @@ public class EmployeeService implements EmployeeApi {
 		}
 		
 		@Override
-		public List<Employee> getAllEmployeesInformationOffice() {
+		public List<Employee> getAllEmployeesInformationOffice(int start, int end) {
 			// TODO Auto-generated method stub
-			return employeeLocalService.getAllEmployeesInformationAsLocal();
+			return employeeLocalService.getAllEmployeesInformationAsLocal(start,end);
 		}
 		
+		public List <Employee> getSearchKeywordEmployeeList(int start, int end, String  keywords){
+			int count = getAllEmployeesInformationOfficeCount();
+			List<Employee> employeeList = getAllEmployeesInformationOffice(0, count);
+			
+			List<Employee> employeeSearchedList = null; 
+			
+			 for(int i=0; i<count; i++) { 
+				  if((keywords).contentEquals(employeeList.get(i).getName())) {
+					  employeeSearchedList.set(i, employeeList.get(i));
+				  }
+				  else {
+					  System.out.println("no result found");
+				  }	
+			 }
+			return employeeSearchedList;
+		}
+			 
+		
 
+		
+
+
+		@Override
+		public int  getAllEmployeesInformationOfficeCount() {
+			
+			return employeeLocalService.getEmployeesCount();
+			
+		}
+		
 		@Reference
 		EmployeeLocalService employeeLocalService;
 
+		
+
+		
 	}

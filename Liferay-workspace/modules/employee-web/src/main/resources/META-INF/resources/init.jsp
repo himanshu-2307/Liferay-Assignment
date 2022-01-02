@@ -6,6 +6,40 @@
 taglib uri="http://liferay.com/tld/portlet" prefix="liferay-portlet" %><%@
 taglib uri="http://liferay.com/tld/theme" prefix="liferay-theme" %><%@
 taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
+<%@ taglib uri="http://liferay.com/tld/portlet" prefix="liferay-portlet" %>
+<%@ page import="com.liferay.portal.kernel.util.ParamUtil" %>
+<%@ page import="com.liferay.portal.kernel.util.HtmlUtil" %>
+<%@ page import="com.liferay.portal.kernel.util.WebKeys" %>
+<%@ page import="com.liferay.portal.kernel.dao.search.ResultRow" %>
+<%@ page import="com.liferay.assignment.office.model.Employee" %>
+<%@ page import="com.liferay.assignment.office.model.EmployeeModel" %>
+
+
+
+<%@ page import="com.liferay.portal.kernel.dao.search.SearchContainer" %>
+<%@ page import="com.liferay.portal.kernel.exception.PortalException" %>
+<%@ page import="com.liferay.portal.kernel.exception.SystemException" %>
+<%@ page import="com.liferay.portal.kernel.language.LanguageUtil" %>
+<%@ page import="com.liferay.portal.kernel.log.Log" %>
+<%@ page import="com.liferay.portal.kernel.log.LogFactoryUtil" %>
+<%@ page import="com.liferay.portal.kernel.search.Indexer" %>
+<%@ page import="com.liferay.portal.kernel.search.IndexerRegistryUtil" %>
+<%@ page import="com.liferay.portal.kernel.search.SearchContext" %>
+<%@ page import="com.liferay.portal.kernel.search.SearchContextFactory" %>
+<%@ page import="com.liferay.portal.kernel.search.Hits" %>
+<%@ page import="com.liferay.portal.kernel.search.Document" %>
+<%@ page import="com.liferay.portal.kernel.search.Field" %>
+<%-- <%@ page import="com.liferay.portal.kernel.util.StringPool" %> --%>
+<%@ page import="com.liferay.portal.kernel.util.GetterUtil" %>
+<%@ page import="com.liferay.portal.kernel.util.Validator" %>
+<%-- <%@ page import="com.liferay.portal.util.PortalUtil" %> --%>
+
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="java.util.HashMap" %>
+<%@ page import="java.util.List" %>
+
+<%@ page import="javax.portlet.PortletURL" %>
 
 <liferay-theme:defineObjects />
 

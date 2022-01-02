@@ -16,7 +16,7 @@ public interface EmployeeApi {
 	public Employee addEmployeeOffice(long userId, String name, String jobTitle, long phoneNo, long salary, long departmentId,
 			long projectId, ServiceContext serviceContext) throws PortalException;
 
-	public Employee updateEmployeeOffice(long userId, long empId, String name, String jobTitle, long phoneNo, int salary,
+	public Employee updateEmployeeOffice(long userId, long employeeId, String name, String jobTitle, long phoneNo, long salary,
 			long departmentId, long projectId, ServiceContext serviceContext) throws PortalException;
 	
 	public Employee deleteEmployeeOffice(long employeeId) throws PortalException ;
@@ -25,7 +25,11 @@ public interface EmployeeApi {
 
 	public List<Employee> getEmployeeByGroupIdAndUserIdOffice(long userId, long groupId) ;
 	
-	public List<Employee> getAllEmployeesInformationOffice() ;
+	public List<Employee> getAllEmployeesInformationOffice(int start, int end) ;
+	
+	public List<Employee> getSearchKeywordEmployeeList(int start, int end, String keywords);
+	 
+	public int getAllEmployeesInformationOfficeCount();
 	
 	
 }

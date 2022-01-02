@@ -49,7 +49,7 @@ EmployeeFinder {
 		return null;
 	}
 
-	public List<Employee> getAllEmployeesInformation() {
+	public List<Employee> getAllEmployeesInformation(int start, int end) {
 		
 		System.out.println("Inside custom sql");
 		Session session = null;
@@ -64,6 +64,8 @@ EmployeeFinder {
 			queryObject.addEntity("Employee", EmployeeImpl.class);
 
 			QueryPos qPos = QueryPos.getInstance(queryObject);
+			qPos.add(start);
+			qPos.add(end);
 			
 			List<Employee> emp= queryObject.list();
 			return emp;
@@ -83,5 +85,7 @@ EmployeeFinder {
 
 	@ServiceReference(type = EmployeeLocalService.class)
 	private EmployeeLocalService employeeLocalService;
+
+	
 
 }

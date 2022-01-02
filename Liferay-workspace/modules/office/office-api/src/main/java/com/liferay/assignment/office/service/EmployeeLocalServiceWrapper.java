@@ -253,9 +253,10 @@ public class EmployeeLocalServiceWrapper
 
 	@Override
 	public java.util.List<com.liferay.assignment.office.model.Employee>
-		getAllEmployeesInformationAsLocal() {
+		getAllEmployeesInformationAsLocal(int start, int end) {
 
-		return _employeeLocalService.getAllEmployeesInformationAsLocal();
+		return _employeeLocalService.getAllEmployeesInformationAsLocal(
+			start, end);
 	}
 
 	/**

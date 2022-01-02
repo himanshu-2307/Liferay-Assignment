@@ -131,7 +131,7 @@ public class EmployeeLocalServiceImpl extends EmployeeLocalServiceBaseImpl {
 	 public DynamicQuery getListWithDynamicQuery(long groupId, long userId) {
 			
 			DynamicQuery employeeQuery= (DynamicQuery) dynamicQuery(dynamicQuery().add(RestrictionsFactoryUtil.eq("groupId", groupId)).add(RestrictionsFactoryUtil.eq("userId", userId)));
-				System.out.println("Tarun" + employeeQuery);
+				System.out.println("Himanshu" + employeeQuery);
 				return employeeQuery;
 		}
 	 public List<Employee> getEmployeeByGroupIdAsLocal(long groupId, long userId){
@@ -146,7 +146,7 @@ public class EmployeeLocalServiceImpl extends EmployeeLocalServiceBaseImpl {
 		 		return employeeFinder.getEmployeeByGroupIdAndUserId(userId, groupId);
 	 }
 	 
-	 public List<Employee> getAllEmployeesInformationAsLocal() {
-			return employeeFinder.getAllEmployeesInformation();
+	 public List<Employee> getAllEmployeesInformationAsLocal(int start, int end) {
+			return employeeFinder.getAllEmployeesInformation(start,end);
 		}
 }

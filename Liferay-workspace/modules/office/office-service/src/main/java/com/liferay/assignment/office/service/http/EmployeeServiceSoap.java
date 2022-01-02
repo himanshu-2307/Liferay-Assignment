@@ -202,12 +202,13 @@ public class EmployeeServiceSoap {
 	}
 
 	public static com.liferay.assignment.office.model.EmployeeSoap[]
-			getAllEmployeesInformation()
+			getAllEmployeesInformation(int start, int end)
 		throws RemoteException {
 
 		try {
 			java.util.List<com.liferay.assignment.office.model.Employee>
-				returnValue = EmployeeServiceUtil.getAllEmployeesInformation();
+				returnValue = EmployeeServiceUtil.getAllEmployeesInformation(
+					start, end);
 
 			return com.liferay.assignment.office.model.EmployeeSoap.
 				toSoapModels(returnValue);
