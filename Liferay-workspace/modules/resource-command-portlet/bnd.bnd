@@ -1,0 +1,4 @@
+Bundle-Name: resource-command-portlet
+Bundle-SymbolicName: com.liferay.sample.portlet.resourcecommand
+Bundle-Version: 1.0.0
+Export-Package: com.liferay.sample.portlet.resourcecommand.constants
