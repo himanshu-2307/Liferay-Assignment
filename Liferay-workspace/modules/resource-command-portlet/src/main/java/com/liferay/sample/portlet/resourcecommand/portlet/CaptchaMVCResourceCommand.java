@@ -22,18 +22,23 @@ import org.osgi.service.component.annotations.Component;
 	)
 
 public class CaptchaMVCResourceCommand implements MVCResourceCommand {
+	private static final Log _log = LogFactoryUtil.getLog(
+			CaptchaMVCResourceCommand.class);
 
 	@Override
 	public boolean serveResource(ResourceRequest resourceRequest, ResourceResponse resourceResponse)
 			throws PortletException {
 		// TODO Auto-generated method stub
-			
-		if (_log.isInfoEnabled()) {
+		//if (_log.isInfoEnabled())
+		 
 			_log.info("get captcha resource ");
-		}
+			
+			
+		
 		
 		try {
 			CaptchaUtil.serveImage(resourceRequest, resourceResponse);
+			
 
 			return false;
 		}
@@ -44,7 +49,6 @@ public class CaptchaMVCResourceCommand implements MVCResourceCommand {
 		}
 	}
 	
-	private static final Log _log = LogFactoryUtil.getLog(
-			CaptchaMVCResourceCommand.class);
+	
 	
 }
