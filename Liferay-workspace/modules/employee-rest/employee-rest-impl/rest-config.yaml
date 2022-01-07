@@ -1,0 +1,9 @@
+apiDir: "../employee-rest-api/src/main/java"
+apiPackagePath: "com.employee"
+application:
+    baseURI: "/employee-rest"
+    className: "EmployeeRestApplication"
+    name: "EmployeeRest"
+author: "Administrator"
+clientDir: "../employee-rest-client/src/main/java"
+testDir: "../employee-rest-test/src/testIntegration/java"

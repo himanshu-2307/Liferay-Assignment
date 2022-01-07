@@ -1,0 +1,55 @@
+info:
+    description: "EmployeeRest REST API"
+    license:
+        name: "Apache 2.0"
+        url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+    title: "EmployeeRest"
+    version: v1.0
+openapi: 3.0.1
+paths:
+  /employee/{employeeId}:
+    get:
+      tags:
+      - OfficeEmployee
+      description: Returns a Single Employee Information.
+      parameters:
+      - name: employeeId
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmployeeDetails'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmployeeDetails'
+components:
+  schemas:
+    EmployeeDetails:
+      type: object
+      properties:
+        name:
+          type: string
+          description: It contains username.
+          readOnly: true
+        employeeId:
+          type: integer
+          format: int64
+        jobTitle:
+          type: string
+          description: It contains job title name.
+          readOnly: true
+        departmentId:
+          type: integer
+          format: int64
+        salary:
+          type: integer
+          format: int64  
+      xml:
+        name: EmployeeDetails
