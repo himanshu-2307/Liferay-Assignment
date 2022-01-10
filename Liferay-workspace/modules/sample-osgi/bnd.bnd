@@ -1,0 +1,5 @@
+Bundle-Name: sample-osgi
+Bundle-SymbolicName: com.liferay.service
+Bundle-Version: 1.0.0
+Bundle-Activator: com.liferay.activator.ServiceActivator
+Export-Package: com.liferay.service	
