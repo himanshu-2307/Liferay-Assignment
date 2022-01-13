@@ -1,0 +1,4 @@
+Bundle-Name: blogs-render
+Bundle-SymbolicName: com.liferay.blogs.render
+Bundle-Version: 1.0.0
+Export-Package: com.liferay.blogs.render.constants

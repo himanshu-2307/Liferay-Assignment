@@ -1,0 +1,4 @@
+Bundle-Name: portlet-undeployed-hook
+Bundle-SymbolicName: com.liferay.support
+Bundle-Version: 1.0.0
+
